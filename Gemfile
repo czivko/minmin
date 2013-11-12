@@ -1,10 +1,38 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
+#ruby-gemset=minmin
+
+group :production do
+  gem 'rails_12factor'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+end
+
+group :development do
+  gem 'quiet_assets'
+  gem 'rails_best_practices'
+  gem 'rack-mini-profiler'
+  gem 'bullet'
+  gem 'better_errors'
+  gem 'thin'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'pry'
+end
+
+gem 'unicorn'
+gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -22,7 +50,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
