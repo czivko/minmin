@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20131113002118) do
     t.string   "slug"
     t.string   "post_type"
     t.datetime "publish"
-    t.hstore   "tags"
+    t.string   "tags",       default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "posts", ["tags"], name: "index_posts_on_tags", using: :gin
 
 end

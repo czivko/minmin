@@ -6,9 +6,10 @@ class CreatePosts < ActiveRecord::Migration
       t.string :slug
       t.string :post_type
       t.datetime :publish
-      t.hstore :tags
+      t.string :tags, array: true, default: []
 
       t.timestamps
     end
+    add_index  :posts, :tags, using: 'gin'
   end
 end
