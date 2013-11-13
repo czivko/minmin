@@ -1,18 +1,21 @@
-
-.col-md-6.col-md-offset-3
-  %h1 Posts
-  - @posts.each do |post|
-    .panel.panel-default
-      .panel-heading
-        =link_to post.title, "posts/#{post.slug}"
-      .panel-body
-        = post.body.html_safe
-        = post.slug
-        = post.post_type
-        = post.published_at
-        = pretty_tags(post)
-        = link_to 'Show', post
-        = link_to 'Edit', edit_post_path(post)
-        = link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
-  %br/
-  = link_to 'New Post', new_post_path
+.container
+  .col-md-6.col-md-offset-3
+    %h1 ChaZiv
+    - @posts.each do |post|
+      .panel.panel-default
+        .panel-heading
+          =link_to post.title, "posts/#{post.slug}"
+        .panel-body
+          = post.body.html_safe
+          .row{style: "padding: 15px 5px 5px 0px;"}
+            .col-md-10
+              = pretty_tags(post)
+            .col-md-2.text-right
+              =post.published_at.strftime( "%m/%d/%Y")
+          .row
+            .col-md-4        
+              = link_to 'Show', post
+              = link_to 'Edit', edit_post_path(post)
+              = link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+    %br/
+    = link_to 'New Post', new_post_path
