@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.tags = ["one", "two"]
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -74,6 +73,8 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :slug, :post_type, :publish, :tags)
+      pre_params = params.require(:post).permit(:title, :body, :slug, :post_type, :publish, :tags)
+      pre_params[:tags] = pre_params[:tags].split( /, */ )
+      pre_params
     end
 end
