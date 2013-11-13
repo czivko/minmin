@@ -6,4 +6,10 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = yield
+    .container
+      .row
+        .col-xs-2
+          %h1 ChaZiv
+        .col-xs-2{style: "padding: 25px 0px 0px 0px;"}
+          =text_field_tag "search", "", placeholder: "Search" , class: "form-control"
+      = yield
