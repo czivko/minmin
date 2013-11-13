@@ -33,8 +33,7 @@ class TumblrImport
         new_post.title = post[:title]
         new_post.tags = post[:tags] 
         new_post.body = post[:body]
-        new_post.tumblr_url = post["tumblr_url"]
-        #new_post.tumblr_url = post["url-with-slug"],
+        new_post.tumblr_url = post[:tumblr_url]
         new_post.post_type = post[:post_type]
         new_post.save!
       end

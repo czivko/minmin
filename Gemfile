@@ -32,6 +32,7 @@ end
 gem 'unicorn'
 gem 'pg'
 gem 'haml'
+gem 'font-awesome-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
