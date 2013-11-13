@@ -26,4 +26,8 @@ Minmin::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  Rack::MiniProfiler.config.position = 'right'
+  # Have Mini Profiler start in hidden mode - display with short cut (defaulted to 'Alt+P')
+  Rack::MiniProfiler.config.start_hidden = true
 end
