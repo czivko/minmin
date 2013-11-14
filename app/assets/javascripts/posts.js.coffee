@@ -5,8 +5,8 @@
 $(document).ready -> 
   words = 'blah'
   
-  $("#search").keyup (e) -> 
-    if e.keyCode == 13 
-      alert words
+  #$("#search").keyup (e) -> 
+    #if e.keyCode == 13 
+      #alert $("#search").val()
     
  

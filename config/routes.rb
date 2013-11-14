@@ -1,5 +1,7 @@
 Minmin::Application.routes.draw do
-  resources :posts
+  resources :posts do
+    post "search", on: :collection
+  end
 
   root 'posts#index'
 

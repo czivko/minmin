@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order("id asc")
   end
 
   # GET /posts/1
@@ -51,7 +51,8 @@ class PostsController < ApplicationController
   end
 
   def search
-    Post.where("'one' = ANY (tags)")
+    @posts = Post.where("'#{params[:search]}' = ANY (tags)")
+    render :index
   end
 
   # DELETE /posts/1

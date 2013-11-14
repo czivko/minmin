@@ -11,5 +11,6 @@
         .col-xs-2
           %h1 ChaZiv
         .col-xs-2{style: "padding: 25px 0px 0px 0px;"}
-          =text_field_tag "search", "", placeholder: "Search" , class: "form-control"
+          =form_tag  '/posts/search', method: :post do
+            =text_field_tag "search", "", placeholder: "Search" , class: "form-control"
       = yield
