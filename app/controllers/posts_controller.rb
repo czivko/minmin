@@ -51,7 +51,11 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where("'#{params[:search]}' = ANY (tags)")
+    @posts = Post.where("'#{params[:search]}' = ANY (tags)
+                        or  body like '%#{params[:search]}%'
+                        or  title like '%#{params[:search]}%'
+                      ")
+               
     render :index
   end
 
