@@ -26,6 +26,7 @@ class TumblrImport
       # Rewrite URLs and create redirects.
       #posts = rewrite_urls_and_redirects posts if rewrite_urls
       # Second pass for writing post files.
+      posts = posts.reverse
       posts.each do |post|
         p post[:body]
         new_post = Post.new
