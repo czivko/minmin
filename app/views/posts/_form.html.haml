@@ -7,29 +7,22 @@
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
-  .field
+  .form-group
     = f.label :title
     %br/
-    = f.text_field :title
-  .field
+    = f.text_field :title, class: "form-control"
+  .form-group
     = f.label :body
     %br/
-    = f.text_area :body
-  .field
-    = f.label :slug
-    %br/
-    = f.text_field :slug
-  .field
+    = f.text_area :body, class: "form-control", rows: 5
+  .form-group
     = f.label :post_type
     %br/
-    = f.text_field :post_type
-  .field
-    = f.label :published_at
-    %br/
-    = f.datetime_select :published_at
-  .field
+    = f.select :post_type, options_for_select(post_types_select, "link"), class: "form-control"
+
+  .form-group
     = f.label :tags
     %br/
-    = f.text_field :tags, value: pretty_tags
-  .actions
-    = f.submit
+    = f.text_field :tags, value: pretty_tags, class: "form-control"
+  .btn.btn-primary
+    = f.submit, class: "btn btn-primary"
