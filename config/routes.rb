@@ -1,6 +1,9 @@
 Minmin::Application.routes.draw do
+  get "share", to: "posts#share"
+
   resources :posts do
     post "search", on: :collection
+
   end
 
   root 'posts#index'

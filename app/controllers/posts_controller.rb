@@ -59,6 +59,10 @@ class PostsController < ApplicationController
     render :index
   end
 
+  def share
+    @post = Post.new(title: params[:t], body: params[:u])
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
