@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order("id asc")
+    @posts = Post.all.order("id desc").limit(30)
   end
 
   # GET /posts/1
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.published_at = DateTime.now if @post.published_at.blank?
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -60,7 +61,7 @@ class PostsController < ApplicationController
   end
 
   def share
-    @post = Post.new(title: params[:t], body: params[:u])
+    @post = Post.new(title: params[:t], body: "<a href=#{params[:u]}>#{params[:u]}</a>")
   end
 
   # DELETE /posts/1

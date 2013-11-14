@@ -9,7 +9,7 @@
           .col-md-10
             = pretty_tags(post)
           .col-md-2.text-right
-            =post.published_at.strftime( "%m/%d/%Y")
+            =post.published_at.strftime( "%m/%d/%Y") if post.published_at
         .row
           .col-md-4        
             = link_to 'Show', post
