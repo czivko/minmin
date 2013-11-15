@@ -33,7 +33,7 @@ gem 'unicorn'
 gem 'pg'
 gem 'haml'
 gem 'font-awesome-rails'
-
+gem 'nokogiri'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
