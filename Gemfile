@@ -4,6 +4,7 @@ ruby '2.0.0'
 
 group :production do
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
 end
 
 group :test do
