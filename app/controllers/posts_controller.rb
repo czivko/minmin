@@ -84,7 +84,7 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       pre_params = params.require(:post).permit(:title, :body, :slug, :post_type, :published_at, :tags)
-      pre_params[:tags] = pre_params[:tags].split( /, */ )
+      pre_params[:tags] = pre_params[:tags].downcase.split( /, */ )
       pre_params
     end
 end
