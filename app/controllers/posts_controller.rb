@@ -61,7 +61,8 @@ class PostsController < ApplicationController
   end
 
   def share
-    @post = Post.new(title: params[:t], body: "<a href=#{params[:u]}>#{params[:u]}</a>")
+    @post = Post.new(title: params[:t], body: "<p><a href=#{params[:u]}>#{params[:u]}</a></p>
+                                                #{params[:s].html_safe}")
   end
 
   # DELETE /posts/1
